@@ -1,0 +1,22 @@
+Label	op	arg1	arg2	result
+1	=	_const1		av
+2	FINC	av		av
+3	PINC	av		_t1
+4	*	av	_t1	_t2
+5	WRITE	_t2		
+6	=	_const2		av
+7	FINC	av		av
+8	FINC	av		av
+9	*	av	av	_t3
+10	WRITE	_t3		
+11	=	_const3		av
+12	PINC	av		_t4
+13	PINC	av		_t5
+14	*	_t4	_t5	_t6
+15	WRITE	_t6		
+16	=	_const4		av
+17	PINC	av		_t7
+18	FINC	av		av
+19	*	_t7	av	_t8
+20	WRITE	_t8		
+21	RETURN			

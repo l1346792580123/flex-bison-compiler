@@ -1,0 +1,81 @@
+.386
+.model flat, stdcall
+option casemap : none
+include \masm32\include\windows.inc
+include \masm32\include\masm32.inc
+include \masm32\include\msvcrt.inc
+include \masm32\include\kernel32.inc
+includelib \masm32\lib\masm32.lib
+includelib \masm32\lib\msvcrt.lib
+includelib \masm32\lib\kernel32.lib
+.data
+		_changemode dw 3710
+		av dd 0
+		_const1 dd 1
+		_t1 dd 0
+		_t2 dd 0
+		_const2 dd 1
+		_t3 dd 0
+		_const3 dd 1
+		_t4 dd 0
+		_t5 dd 0
+		_t6 dd 0
+		_const4 dd 1
+		_t7 dd 0
+		_t8 dd 0
+		_laji dq 0
+		data db '%d',0
+		data1 db '%c',0
+		data2 db '%lf', 0
+.code
+start:
+		fldcw _changemode
+		mov eax, _const1
+		mov av, eax
+		inc av
+		mov eax, av
+		mov _t1, eax
+		inc av
+		mov eax, av
+		mov ebx, _t1
+		mul ebx
+		mov _t2, eax
+		invoke crt_printf,addr data, _t2
+		mov eax, _const2
+		mov av, eax
+		inc av
+		inc av
+		mov eax, av
+		mov ebx, av
+		mul ebx
+		mov _t3, eax
+		invoke crt_printf,addr data, _t3
+		mov eax, _const3
+		mov av, eax
+		mov eax, av
+		mov _t4, eax
+		inc av
+		mov eax, av
+		mov _t5, eax
+		inc av
+		mov eax, _t4
+		mov ebx, _t5
+		mul ebx
+		mov _t6, eax
+		invoke crt_printf,addr data, _t6
+		mov eax, _const4
+		mov av, eax
+		mov eax, av
+		mov _t7, eax
+		inc av
+		inc av
+		mov eax, _t7
+		mov ebx, av
+		mul ebx
+		mov _t8, eax
+		invoke crt_printf,addr data, _t8
+		jmp lend
+lend:
+		invoke crt__getch
+		ret
+end start
